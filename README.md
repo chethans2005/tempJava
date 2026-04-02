@@ -62,6 +62,19 @@ QuickCommerceApp/
 
 ---
 
+## Design Pattern Mapping
+
+The table below maps the required 4 patterns, including creational, structural, behavioral, and one framework-enforced pattern.
+
+| Pattern | Category | Where Implemented | Evidence |
+|---|---|---|---|
+| Factory Method | Creational | `OrderItem.fromCartItem(...)` creates `OrderItem` from `CartItem` | [src/main/java/com/quickcommerce/model/OrderItem.java](src/main/java/com/quickcommerce/model/OrderItem.java) |
+| Adapter (Mapper-style) | Structural | `ProductMapper` adapts between domain model and persistence entity | [src/main/java/com/quickcommerce/service/ProductMapper.java](src/main/java/com/quickcommerce/service/ProductMapper.java) |
+| Observer / Event Listener | Behavioral | Swing event callbacks via `MouseAdapter` in custom UI components | [src/main/java/com/quickcommerce/gui/components/StyledButton.java](src/main/java/com/quickcommerce/gui/components/StyledButton.java) |
+| Repository (Spring Data JPA) | Framework-enforced | Spring repositories extend `JpaRepository` and are injected into services | [src/main/java/com/quickcommerce/persistence/repo/ProductRepository.java](src/main/java/com/quickcommerce/persistence/repo/ProductRepository.java), [src/main/java/com/quickcommerce/SpringApp.java](src/main/java/com/quickcommerce/SpringApp.java) |
+
+---
+
 ## UML Relationships Implemented
 
 | Relationship | Classes | Multiplicity |
